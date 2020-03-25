@@ -80,6 +80,7 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
 
 - (void)initialize
 {
+    self.itemList = [[NSArray alloc] init];
     [self setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
     [self setContentHorizontalAlignment:UIControlContentHorizontalAlignmentCenter];
     
@@ -333,8 +334,13 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
         super.text = [_itemListUI?:_itemList objectAtIndex:row];
     }
 
-    NSInteger pickerViewRow = row + (self.isOptionalDropDown ? 1 : 0);
-    [self.pickerView selectRow:pickerViewRow inComponent:0 animated:animated];
+    @try {
+        NSInteger pickerViewRow = row + (self.isOptionalDropDown ? 1 : 0);
+        [self.pickerView selectRow:pickerViewRow inComponent:0 animated:animated];
+    } @finally {
+        
+    }
+    
 }
 
 #pragma mark - Toolbar
