@@ -331,7 +331,7 @@ NSInteger const IQOptionalTextFieldIndex =  -1;
             } else if (_itemList.count > 0) {
                 super.text = [_itemListUI?:_itemList objectAtIndex:0];
             }
-        } else if (_itemList.count > row && row > 0) {
+        } else if (_itemList.count > row && row >= 0) {
             super.text = [_itemListUI?:_itemList objectAtIndex:row];
         } else {
             super.text = @"";
